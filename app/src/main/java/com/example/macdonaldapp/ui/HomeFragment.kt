@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.macdonaldapp.R
+import com.example.macdonaldapp.databinding.FragmentHomeBinding
 
 
 class HomeFragment : Fragment() {
 
-
+    private var quantity = 0
+    private lateinit var binding: FragmentHomeBinding
 
 
     override fun onCreateView(
@@ -18,7 +20,25 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.tvDipslay.text = quantity.toString()
+        binding.ivAdd.setOnClickListener {
+            binding.tvDipslay.text = (++quantity).toString()
+        }
+        binding.ivCut.setOnClickListener {
+            if (quantity == 0) {
+                binding.tvDipslay.text = quantity.toString()
+            } else {
+                binding.tvDipslay.text = (--quantity).toString()
+            }
+
+        }
+
     }
 
 }
