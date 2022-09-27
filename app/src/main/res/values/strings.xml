@@ -2,4 +2,9 @@
     <string name="app_name">MacdonaldApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="big_mac">Big Mac</string>
+    <string name="double_cheeseburger">Double Cheeseburger</string>
+    <string name="double_quarter_pounder_with_cheese">Double Quarter Pounder®* with Cheese</string>
+    <string name="mcdouble">McDouble®</string>
+    <string name="subtotal">Subtotal: %d</string>
 </resources>
