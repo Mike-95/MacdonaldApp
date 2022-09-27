@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.macdonaldapp.R
 import com.example.macdonaldapp.databinding.FragmentHomeBinding
 
@@ -27,18 +28,26 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.tvDipslay.text = quantity.toString()
-        binding.ivAdd.setOnClickListener {
-            binding.tvDipslay.text = (++quantity).toString()
-        }
-        binding.ivCut.setOnClickListener {
-            if (quantity == 0) {
-                binding.tvDipslay.text = quantity.toString()
-            } else {
-                binding.tvDipslay.text = (--quantity).toString()
-            }
 
-        }
+        binding.ivAdd.setOnClickListener { increment() }
+        binding.ivCut.setOnClickListener {decrement()}
+        binding.btnSubmit.setOnClickListener { orderQuantity(quantity) }
 
     }
 
+    private fun increment() {
+        binding.tvDipslay.text = (++quantity).toString()
+    }
+
+    private fun decrement() {
+        if (quantity == 0) {
+            binding.tvDipslay.text = quantity.toString()
+        } else {
+            binding.tvDipslay.text = (--quantity).toString()
+        }
+    }
+
+    private fun orderQuantity(quantity: Int){
+        findNavController().navigate(R.id.action_homeFragment_to_flavorFragment)
+    }
 }

@@ -9,5 +9,32 @@
         android:id="@+id/homeFragment"
         android:name="com.example.macdonaldapp.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_flavorFragment"
+            app:destination="@id/flavorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/flavorFragment"
+        android:name="com.example.macdonaldapp.ui.FlavorFragment"
+        android:label="fragment_flavor"
+        tools:layout="@layout/fragment_flavor" >
+        <action
+            android:id="@+id/action_flavorFragment_to_pickupFragment"
+            app:destination="@id/pickupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.example.macdonaldapp.ui.SummaryFragment"
+        android:label="fragment_summary"
+        tools:layout="@layout/fragment_summary" />
+    <fragment
+        android:id="@+id/pickupFragment"
+        android:name="com.example.macdonaldapp.ui.PickupFragment"
+        tools:layout="@layout/fragment_pickup"
+        android:label="PickupFragment" >
+        <action
+            android:id="@+id/action_pickupFragment_to_summaryFragment"
+            app:destination="@id/summaryFragment" />
+    </fragment>
 </navigation>

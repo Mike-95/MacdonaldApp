@@ -13,5 +13,6 @@
     <string name="sunday">Sunday</string>
     <string name="quantity">QUANTITY</string>
     <string name="total">Total: %d</string>
+    <string name="next">Next</string>
     />
 </resources>
