@@ -5,14 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.macdonaldapp.R
 import com.example.macdonaldapp.databinding.FragmentPickupBinding
+import com.example.macdonaldapp.model.OrderViewModel
 
 
 class PickupFragment : Fragment() {
 
     private lateinit var binding: FragmentPickupBinding
+
+    // Getting reference of shared view model;
+    private val sharedViewModel: OrderViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

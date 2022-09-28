@@ -5,15 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.macdonaldapp.R
 import com.example.macdonaldapp.databinding.FragmentHomeBinding
+import com.example.macdonaldapp.model.OrderViewModel
 
 
 class HomeFragment : Fragment() {
 
     private var quantity = 0
     private lateinit var binding: FragmentHomeBinding
+
+    // Getting reference of shared view model;
+    private val sharedViewModel: OrderViewModel by activityViewModels()
 
 
     override fun onCreateView(
