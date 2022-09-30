@@ -3,6 +3,8 @@ package com.example.macdonaldapp.model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class OrderViewModel : ViewModel() {
 
@@ -30,6 +32,25 @@ class OrderViewModel : ViewModel() {
     fun setData(pickupDate: String) {
         _data.value = pickupDate
     }
+
+    // Checking if the flavor for  order has been set or not
+    fun hasNoFlavorSet(): Boolean {
+        return _flavor.value.isNullOrEmpty()
+    }
+
+    // Creating list of pickup dates
+    private fun getPickupOptions(): List<String>{
+        val options = mutableListOf<String>()
+        val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())
+        val calendar = Calendar.getInstance()
+        repeat(4){
+            options.add(formatter.format(calendar.time))
+            calendar.add(Calendar.DATE, 1)
+        }
+        return options
+    }
+
+    val dateOptions = getPickupOptions()
 
 
 }

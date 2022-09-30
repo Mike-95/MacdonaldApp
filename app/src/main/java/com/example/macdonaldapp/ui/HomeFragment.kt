@@ -53,6 +53,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun orderQuantity(quantity: Int){
+        sharedViewModel.setQuantity(quantity)
+        if (sharedViewModel.hasNoFlavorSet()){
+            sharedViewModel.setFlavor(getString(R.string.big_mac))
+        }
         findNavController().navigate(R.id.action_homeFragment_to_flavorFragment)
     }
 }

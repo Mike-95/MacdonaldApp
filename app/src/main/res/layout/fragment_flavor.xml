@@ -1,81 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".ui.FlavorFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <RadioGroup
-        android:id="@+id/flavor_options"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <data>
 
-        <RadioButton
-            android:id="@+id/vanilla"
+        <variable
+            name="viewModel"
+            type="com.example.macdonaldapp.model.OrderViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".ui.FlavorFragment">
+
+        <RadioGroup
+            android:id="@+id/flavor_options"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/big_mac" />
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.03"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <RadioButton
-            android:id="@+id/cheeseburger"
+            <RadioButton
+                android:id="@+id/vanilla"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewModel.flavor.equals(@string/big_mac)}"
+                android:onClick="@{() -> viewModel.setFlavor(@string/big_mac)}"
+                android:text="@string/big_mac" />
+
+            <RadioButton
+                android:id="@+id/cheeseburger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewModel.flavor.equals(@string/cheeseburger)}"
+                android:onClick="@{() -> viewModel.setFlavor(@string/cheeseburger)}"
+                android:text="@string/cheeseburger" />
+
+            <RadioButton
+                android:id="@+id/double_cheeseburger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewModel.flavor.equals(@string/double_cheeseburger)}"
+                android:onClick="@{() -> viewModel.setFlavor(@string/double_cheeseburger)}"
+                android:text="@string/double_cheeseburger" />
+
+            <RadioButton
+                android:id="@+id/double_pounder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewModel.flavor.equals(@string/double_quarter_pounder_with_cheese)}"
+                android:onClick="@{() -> viewModel.setFlavor(@string/double_quarter_pounder_with_cheese)}"
+                android:text="@string/double_quarter_pounder_with_cheese" />
+
+            <RadioButton
+                android:id="@+id/mcdouble"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewModel.flavor.equals(@string/mcdouble)}"
+                android:onClick="@{() -> viewModel.setFlavor(@string/mcdouble)}"
+                android:text="@string/mcdouble" />
+        </RadioGroup>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/flavor_options" />
+
+        <TextView
+            android:id="@+id/tv__pickup_subtotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cheeseburger" />
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/subtotal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
 
-        <RadioButton
-            android:id="@+id/double_cheeseburger"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btn_flavor_next"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/double_cheeseburger" />
-
-        <RadioButton
-            android:id="@+id/double_pounder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/double_quarter_pounder_with_cheese" />
-
-        <RadioButton
-            android:id="@+id/mcdouble"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mcdouble" />
-    </RadioGroup>
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flavor_options" />
-
-    <TextView
-        android:id="@+id/tv__pickup_subtotal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/subtotal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2" />
-
-    <Button
-        android:id="@+id/btn_flavor_next"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv__pickup_subtotal" />
+            android:layout_marginTop="24dp"
+            android:text="Next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv__pickup_subtotal" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -14,5 +14,6 @@
     <string name="quantity">QUANTITY</string>
     <string name="total">Total: %d</string>
     <string name="next">Next</string>
+    <string name="cheeseburger">Cheeseburger</string>
     />
 </resources>

@@ -24,7 +24,6 @@ class FlavorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         binding = FragmentFlavorBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -32,6 +31,9 @@ class FlavorFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.apply {
+            viewModel = sharedViewModel
+        }
 
         binding.btnFlavorNext.setOnClickListener {
             findNavController().navigate(R.id.action_flavorFragment_to_pickupFragment)

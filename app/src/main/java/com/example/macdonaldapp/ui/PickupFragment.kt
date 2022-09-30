@@ -31,6 +31,9 @@ class PickupFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding?.apply {
+            viewModel = sharedViewModel
+        }
 
         binding.btnPickupNext.setOnClickListener {
             findNavController().navigate(R.id.action_pickupFragment_to_summaryFragment)
