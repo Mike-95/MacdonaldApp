@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="1"
+                android:text="@{viewModel.quantity.toString()}"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Big Mac"
+                android:text="@{viewModel.flavor}"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Sunday"
+                android:text="@{viewModel.data}"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
