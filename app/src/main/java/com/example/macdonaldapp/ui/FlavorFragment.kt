@@ -33,6 +33,7 @@ class FlavorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             viewModel = sharedViewModel
+            lifecycleOwner = viewLifecycleOwner
         }
 
         binding.btnFlavorNext.setOnClickListener {

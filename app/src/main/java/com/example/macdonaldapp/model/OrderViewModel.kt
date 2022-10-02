@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 private const val PRICE_PER_HAMBURGER = 7.00
+private const val PRICE_FOR_SAME_DAY_PICKUP = 3.00
 
 class OrderViewModel : ViewModel() {
 
@@ -34,6 +35,7 @@ class OrderViewModel : ViewModel() {
 
     fun setData(pickupDate: String) {
         _data.value = pickupDate
+        updatePrice()
     }
 
     init {
@@ -42,7 +44,11 @@ class OrderViewModel : ViewModel() {
 
     //Helper method to calculate the price
     private fun updatePrice(){
-        _price.value = (quantity.value ?: 0) * PRICE_PER_HAMBURGER
+       var calculatedPrice = (quantity.value ?: 0) * PRICE_PER_HAMBURGER
+        if (dateOptions[0] == _data.value){
+            calculatedPrice += PRICE_FOR_SAME_DAY_PICKUP
+        }
+        _price.value = calculatedPrice
     }
 
     // Checking if the flavor for  order has been set or not
