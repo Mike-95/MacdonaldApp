@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
+private const val PRICE_PER_HAMBURGER = 7.00
+
 class OrderViewModel : ViewModel() {
 
     private val _quantity = MutableLiveData<Int>()
@@ -23,6 +25,7 @@ class OrderViewModel : ViewModel() {
     // Methods
     fun setQuantity(numberBurgers: Int) {
         _quantity.value = numberBurgers
+        updatePrice()
     }
 
     fun setFlavor(desiredFlavor: String) {
@@ -35,6 +38,11 @@ class OrderViewModel : ViewModel() {
 
     init {
         resetOrder()
+    }
+
+    //Helper method to calculate the price
+    private fun updatePrice(){
+        _price.value = (quantity.value ?: 0) * PRICE_PER_HAMBURGER
     }
 
     // Checking if the flavor for  order has been set or not

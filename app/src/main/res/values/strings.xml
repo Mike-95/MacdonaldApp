@@ -6,13 +6,13 @@
     <string name="double_cheeseburger">Double Cheeseburger</string>
     <string name="double_quarter_pounder_with_cheese">Double Quarter Pounder®* with Cheese</string>
     <string name="mcdouble">McDouble®</string>
-    <string name="subtotal">Subtotal: %d</string>
+    <string name="subtotal">Subtotal: %s</string>
     <string name="thursday">Thursday</string>
     <string name="friday">Friday</string>
     <string name="Saturday">Saturday</string>
     <string name="sunday">Sunday</string>
     <string name="quantity">QUANTITY</string>
-    <string name="total">Total: %d</string>
+    <string name="total">Total: %s</string>
     <string name="next">Next</string>
     <string name="cheeseburger">Cheeseburger</string>
     />

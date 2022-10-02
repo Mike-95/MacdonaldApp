@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginTop="16dp"
-                android:text="@string/total" />
+                android:text="@{@string/total(viewModel.price)}" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
