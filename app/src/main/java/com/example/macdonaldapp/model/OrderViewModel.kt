@@ -78,7 +78,7 @@ class OrderViewModel : ViewModel() {
     val dateOptions = getPickupOptions()
 
     // reset Mutable Live data properties
-    private fun resetOrder() {
+     fun resetOrder() {
         _quantity.value = 0
         _flavor.value = ""
         //Bug FiX:: date reset crushes

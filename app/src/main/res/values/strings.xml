@@ -15,5 +15,8 @@
     <string name="total">Total: %s</string>
     <string name="next">Next</string>
     <string name="cheeseburger">Cheeseburger</string>
+    <string name="cancel">Cancel</string>
+    <string name="new_cupcake_order">New Cupcake Order</string>
+    <string name="order_details">Quantity: %1$s cupcakes \n Flavor: %2$s \nPickup date: %3$s \n Total: %4$s \n\n Thank you!</string>
     />
 </resources>
