@@ -1,5 +1,6 @@
 package com.example.macdonaldapp.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -46,11 +47,27 @@ class SummaryFragment : Fragment() {
     }
 
     fun sendOrder() {
-        Toast.makeText(activity, "Send Order", Toast.LENGTH_SHORT).show()
+        val orderSummary = getString(
+            R.string.order_details,
+            sharedViewModel.quantity.value.toString(),
+            sharedViewModel.flavor.value.toString(),
+            sharedViewModel.data.value.toString(),
+            sharedViewModel.price.value.toString()
+        )
+
+        val intent = Intent(Intent.ACTION_SEND)
+            .setType("text/plain")
+            .putExtra(Intent.EXTRA_SUBJECT, getString(R.string.new_cupcake_order))
+            .putExtra(Intent.EXTRA_TEXT, orderSummary)
+
+        // Check if there is an app to handle it
+        if (activity?.packageManager?.resolveActivity(intent, 0) != null){
+            startActivity(intent)
+        }
     }
 
     // Implementing cancel button to back fragment to home fragment
-    fun cancelOrder(){
+    fun cancelOrder() {
         sharedViewModel.resetOrder()
         findNavController().navigate(R.id.action_summaryFragment_to_homeFragment)
     }
