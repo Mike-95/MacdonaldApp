@@ -2,7 +2,9 @@ package com.example.macdonaldapp.model
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -20,8 +22,15 @@ class OrderViewModel : ViewModel() {
     private val _data = MutableLiveData<String>()
     val data: LiveData<String> = _data
 
+   /* private val _price = MutableLiveData<Double>()
+    val price: LiveData<String> */
+
+    //Initializing transformation method
+    //convert the price to local currency
     private val _price = MutableLiveData<Double>()
-    val price: LiveData<Double> = _price
+    val price: LiveData<String> = Transformations.map(_price){
+        NumberFormat.getCurrencyInstance().format(it)
+    }
 
     // Methods
     fun setQuantity(numberBurgers: Int) {
