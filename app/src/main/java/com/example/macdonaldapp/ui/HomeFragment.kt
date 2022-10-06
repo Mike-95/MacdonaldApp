@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.macdonaldapp.R
@@ -60,6 +61,12 @@ class HomeFragment : Fragment() {
         if (sharedViewModel.hasNoFlavorSet()){
             sharedViewModel.setFlavor(getString(R.string.big_mac))
         }
-        findNavController().navigate(R.id.action_homeFragment_to_flavorFragment)
+         if (quantity == 0){
+             Toast.makeText(context, "Choose order amount", Toast.LENGTH_SHORT).show()
+         }else{
+             findNavController().navigate(R.id.action_homeFragment_to_flavorFragment)
+         }
+
+
     }
 }

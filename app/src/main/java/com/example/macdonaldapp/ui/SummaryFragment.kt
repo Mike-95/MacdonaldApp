@@ -40,7 +40,7 @@ class SummaryFragment : Fragment() {
             viewModel = sharedViewModel
             lifecycleOwner = viewLifecycleOwner
 
-            //bidning variable to fragment instance
+            //binding variable to fragment instance
             summaryFragment = this@SummaryFragment
 
         }
