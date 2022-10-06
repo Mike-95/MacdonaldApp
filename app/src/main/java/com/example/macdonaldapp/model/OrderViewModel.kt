@@ -22,8 +22,6 @@ class OrderViewModel : ViewModel() {
     private val _data = MutableLiveData<String>()
     val data: LiveData<String> = _data
 
-   /* private val _price = MutableLiveData<Double>()
-    val price: LiveData<String> */
 
     //Initializing transformation method
     //convert the price to local currency
@@ -83,7 +81,8 @@ class OrderViewModel : ViewModel() {
     private fun resetOrder() {
         _quantity.value = 0
         _flavor.value = ""
-     //  _data.value = dateOptions[1]
+        //Bug FiX:: date reset crushes
+      //_data.value = dateOptions[0]
         _price.value = 0.0
     }
 }

@@ -32,12 +32,18 @@ class FlavorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+            // Specify the fragment as the lifecycle owner
             viewModel = sharedViewModel
+            //Assign the view model to a property in binding class
             lifecycleOwner = viewLifecycleOwner
+            // binding fragment data variable with fragment instance
+            flavorFragment = this@FlavorFragment
         }
 
-        binding.btnFlavorNext.setOnClickListener {
-            findNavController().navigate(R.id.action_flavorFragment_to_pickupFragment)
-        }
     }
+    fun goToNextScreen(){
+        findNavController().navigate(R.id.action_flavorFragment_to_pickupFragment)
+
+    }
+
 }

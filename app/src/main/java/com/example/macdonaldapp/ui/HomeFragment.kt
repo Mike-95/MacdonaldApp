@@ -32,6 +32,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //binding new data variable to the fragment instance
+        binding.startFragment = this
+
         binding.tvDipslay.text = quantity.toString()
 
         binding.ivAdd.setOnClickListener { increment() }
@@ -52,7 +55,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun orderQuantity(quantity: Int){
+     fun orderQuantity(quantity: Int){
         sharedViewModel.setQuantity(quantity)
         if (sharedViewModel.hasNoFlavorSet()){
             sharedViewModel.setFlavor(getString(R.string.big_mac))
